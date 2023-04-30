@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\InicioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,39 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+//Ruta 1
+Route::get('/sincontroller', 
+function () {
+    return view('sincontroller');
+});
+
+//Ruta 2 - con datos
+Route::get('/sincontrollercondatos', 
+function () {
+    return view('sincontrollercondatos',[
+        'mensaje'=> 'Este es un mensaje
+        desde las rutas', 
+        'mensaje2'=>'ya nos queremos ir'
+    ]);
+});
+
+Route::get('/inicio',
+[InicioController::class,'inicio']);
+
+Route::get('/products',
+function(){
+    return view('products/show');
+});
+
+Route::get('/products/create',
+function(){
+    return view('products/create');
+});
+
+Route::get('/products/update',
+function(){
+    return view('products/update');
 });
