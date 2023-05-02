@@ -38,16 +38,19 @@ function () {
 Route::get('/inicio',
 [InicioController::class,'inicio']);
 
+#mostrar productos
 Route::get('/products',
 function(){
     return view('products/show');
 });
 
+#crear productos
 Route::get('/products/create',
 function(){
     return view('products/create');
 });
 
+#actualizar productos
 Route::get('/products/update',
 function(){
     return view('products/update');
